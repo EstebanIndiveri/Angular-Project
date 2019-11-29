@@ -1,0 +1,11 @@
+<h1>
+    Componente de cursos
+</h1>
+<p *ngIf="!nombre"> Este componente toma parametros indicados en la la url, un ejemplo de uso puede ser el siguiente: <br> /cursos/esteban/80. lo cual mostrará el nombre de usuario y el numero de seguidores que tiene, te invito a que realices la prueba.
+</p>
+<button (click)="redirigir()">Llevame a Zapatillas</button>
+
+<h3 *ngIf="nombre" [ngStyle]="{'font-size': '30px',
+'color':'#333'}">Bienvenido {{nombre}}</h3>
+<h3 *ngIf="followers" [ngStyle]="{
+'color':'#eb88a1'}">Tus seguidores son {{followers}} </h3>

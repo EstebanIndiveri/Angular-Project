@@ -1,0 +1,47 @@
+<h2>
+    Contacto
+</h2>
+<form #formContacto="ngForm" (ngSubmit)="onSubmit()" action="">
+<label for="nombre">Nombre</label>
+<input type="text" name="nombre" #nombre="ngModel" [(ngModel)]="usuario.nombre" required pattern="[a-zA-Z]+">
+<span *ngIf="nombre.touched && !nombre.valid" [ngStyle]="{
+    'color':'red',
+    'font-size': '20px',
+    'margin-left': '30%',
+    'margin-bottom':'5px'
+}">
+    El nombre es obligatorio
+</span>
+
+<label for="apellidos">Apellidos</label>
+<input type="text" name="Apellidos" #apellidos="ngModel" [(ngModel)]="usuario.apellidos" required pattern="[a-zA-Z]+">
+<span *ngIf="apellidos.touched && !apellidos.valid" [ngStyle]="{
+    'color':'red',
+    'font-size': '20px',
+    'margin-left': '30%'
+}">
+    Los apellidos son obligatorios
+</span>
+
+<label for="email">Email</label>
+<input type="email" name="email" #email="ngModel" [(ngModel)]="usuario.email" required>
+<span *ngIf="email.touched && !email.valid" [ngStyle]="{
+    'color':'red',
+    'font-size': '20px',
+    'margin-left': '30%'
+}">
+    El email no es valido
+</span>
+
+<label for="mensaje">Mensaje</label>
+<textarea name="mensaje" #mensaje="ngModel" [(ngModel)]="usuario.mensaje" cols="30" rows="10" required></textarea>
+<input type="submit" value="Enviar" [disabled]="!formContacto.form.valid">
+
+<span *ngIf="mensaje.touched && !mensaje.valid" [ngStyle]="{
+    'color':'red',
+    'font-size': '20px',
+    'margin-left': '30%'
+}">
+    El mensaje es obligatorio
+</span>
+</form>
